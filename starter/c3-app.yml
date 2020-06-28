@@ -78,7 +78,7 @@ Resources:
       SubnetId: !ImportValue PublicSubnetTrusted
       IamInstanceProfile: !Ref InstanceProfileRole
       Tags:
-      - Key: "Cloud_Architect"
+      - Key: "Name"
         Value: "Web Service Instance - C3"
       UserData:
         Fn::Base64:
