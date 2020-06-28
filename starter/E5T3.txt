@@ -1,0 +1,174 @@
+pascalegbenda@Pascals-MacBook-Pro starter % checkov -f c3-s3.yml         
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+by bridgecrew.io | version: 1.0.397 
+
+cloudformation scan results:
+
+Passed checks: 6, Failed checks: 21, Skipped checks: 0
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3.yml:5-7
+
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3.yml:5-7
+
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3.yml:9-11
+
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3.yml:9-11
+
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3.yml:13-16
+
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3.yml:13-16
+
+
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        FAILED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3.yml:5-7
+
+                5 |     Type: AWS::S3::Bucket
+                6 |     Properties:
+                7 |       BucketName: !Join [ "-", [ "cand-c3-free-recipes", !Ref 'AWS::AccountId' ] ]
+
+
+
+pascalegbenda@Pascals-MacBook-Pro starter % checkov -f c3-s3_solution.yml
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+by bridgecrew.io | version: 1.0.397 
+
+cloudformation scan results:
+
+Passed checks: 21, Failed checks: 6, Skipped checks: 0
+
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_bucket' enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesFree
+        File: c3-s3_solution.yml:5-16
+
+
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_bucket' enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketRecipesSecret
+        File: c3-s3_solution.yml:18-29
+
+
+Check: CKV_AWS_19: "Ensure the S3 bucket has server-side-encryption enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+Check: CKV_AWS_20: "Ensure the S3 bucket does not allow READ permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+Check: CKV_AWS_57: "Ensure the S3 bucket does not allow WRITE permissions to everyone"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_bucket' enabled"
+        PASSED for resource: AWS::S3::Bucket.S3BucketVPCFlowLogs
+        File: c3-s3_solution.yml:31-43
+
+
+

@@ -1,0 +1,23 @@
+Research and analyse which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Default SG:
+- 4.3 Ensure the default security group of every VPC restricts all traffic
+- EC2.2 The VPC default security group should not allow inbound and outbound traffic
+
+WebAppSG:
+- 4.1 Ensure no security groups allow ingress from 0.0.0.0/0 to port 22
+- 4.2 Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389
+
+Attack Instance - C3:
+SSM.1 EC2 instances should be managed by AWS Systems Manager
+
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+- A VPC comes with a default security group whose initial settings deny all inbound traffic, allow all outbound traffic, and allow all traffic between instances assigned to the security group. If you don't specify a security group when you launch an instance, the instance is automatically assigned to this default security group. It is recommended that the default security group restrict all traffic.
+
+- Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access on port 3389.
+
+- Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access on port 22.
+
+- This AWS control checks whether the Amazon EC2 instances in your account are managed by AWS Systems Manager. Use AWS System Manager to manage or access your EC2 instance.

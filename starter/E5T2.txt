@@ -1,0 +1,23 @@
+# Identify tools that will allow you to do the following:
+
+a. Scan infrastructure as code templates
+Checkov is a static code analysis tool for infrastructure-as-code. It scans cloud infrastructure provisioned using Terraform, Cloudformation or Kubernetes and detects security and compliance misconfigurations.
+
+Example vulnerability
+- "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+- "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+- "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+- "Ensure CloudTrail logs are encrypted at rest using KMS CMKs"
+
+b. Scan AMI’s or containers for OS vulnerabilities
+Anchore Engine allow detailed analysis on container images. Anchore Engine can prevent publication of images containing known vulnerabilities
+
+Example vulnerability
+Vulnerability ID  Package         Severity  Fix        Vulnerability URL
+CVE-2019-14697    musl-1.1.22.r2  High      1.1.22-r3  http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14697
+
+c. Scan an AWS environment for cloud configuration vulnerabilities
+AWS Config is an auditing tool that provides an inventory of existing resources, allowing an administrator to accurately track AWS assets to analyse compliance levels and security
+
+Example vulnerability
+s3-bucket-server-side-encryption-enabled - Checks that your Amazon S3 bucket either has S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption.
